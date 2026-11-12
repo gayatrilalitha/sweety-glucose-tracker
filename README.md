@@ -134,28 +134,46 @@ JWT_SECRET=sweety_blood_glucose_tracker
 
 ### 3. Database Setup
 
-1. Install PostgreSQL.
+1. Install PostgreSQL and open pgAdmin 4.
 2. Create a database named `sweety_db`.
-3. Create the required `users` and `readings` tables.
-4. Configure your database credentials in the server `.env` file.
+3. Open the Query Tool for `sweety_db`.
+4. Open the project's `database/schema.sql` file.
+5. Execute the SQL script to create the `users` and `readings` tables.
 
-The `readings` table should enforce the allowed glucose range, valid time slots, and uniqueness of each user's reading per date and time slot.
+### 4. Configure Environment Variables
 
-### 4. Start the Backend
+Create a `.env` file inside the `server` folder using `server/.env.example` as a reference.
+
+Update the PostgreSQL credentials and JWT secret.
+
+### 5. Insert Sample Data (Optional)
 
 From the `server` directory, run:
+
+```bash
+node scripts/seed.js
+```
+
+This inserts sample user and glucose reading data into the database.
+
+Sample login credentials:
+
+- **Email:** test@example.com
+- **Password:** Test@123
+
+### 6. Start the Backend
+
+From the `server` directory:
 
 ```bash
 npm run dev
 ```
 
-Backend runs at:
+Backend runs at `http://localhost:5000`.
 
-`http://localhost:5000`
+### 7. Start the Frontend
 
-### 5. Frontend Setup
-
-Open another terminal from the project root:
+Open another terminal:
 
 ```bash
 cd client
@@ -163,7 +181,7 @@ npm install
 npm run dev
 ```
 
-Open the frontend URL displayed by Vite in your terminal.
+Open the frontend URL displayed by Vite.
 
 ## 🔗 API Endpoints
 
