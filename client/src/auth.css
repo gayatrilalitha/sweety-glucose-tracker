@@ -1,0 +1,137 @@
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  background:
+    radial-gradient(circle at 15% 20%, #d5eee3 0, transparent 35%),
+    radial-gradient(circle at 85% 80%, #dcebe5 0, transparent 35%),
+    #f5f7f4;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  padding: 42px;
+  background: #ffffff;
+  border: 1px solid #e4ebe7;
+  border-radius: 22px;
+  box-shadow: 0 20px 60px rgba(18, 59, 58, 0.09);
+  animation: authAppear 0.5s ease;
+}
+
+@keyframes authAppear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-card h1 {
+  color: #123b3a;
+  text-align: center;
+  font-size: 29px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.auth-subtitle {
+  color: #82938e;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-form label {
+  color: #34534c;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+.auth-form input {
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #dce6e0;
+  border-radius: 10px;
+  outline: none;
+  background: #fbfdfb;
+  color: #243c38;
+  transition: 0.25s;
+}
+
+.auth-form input::placeholder {
+  color: #a8b5af;
+}
+
+.auth-form input:focus {
+  border-color: #176b59;
+  box-shadow: 0 0 0 3px rgba(23, 107, 89, 0.1);
+  background: white;
+}
+
+.auth-form button {
+  height: 49px;
+  margin-top: 15px;
+  border-radius: 10px;
+  background: #176b59;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  transition: 0.25s;
+}
+
+.auth-form button:hover {
+  background: #123b3a;
+  transform: translateY(-1px);
+}
+
+.auth-footer {
+  margin-top: 25px;
+  text-align: center;
+  color: #82938e;
+  font-size: 13px;
+}
+
+.auth-footer a {
+  color: #176b59;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+.auth-error {
+  color: #dc5252;
+  font-size: 13px;
+}
+
+.auth-success {
+  color: #21845e;
+  font-size: 13px;
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 28px 22px;
+  }
+
+  .auth-card h1 {
+    font-size: 25px;
+  }
+}

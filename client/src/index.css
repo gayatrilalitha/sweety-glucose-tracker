@@ -1,0 +1,82 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #243c38;
+  background: #f5f7f4;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+  --primary: #176b59;
+  --primary-dark: #123b3a;
+  --mint: #ddf4e9;
+  --background: #f5f7f4;
+  --surface: #ffffff;
+  --text: #243c38;
+  --muted: #82938e;
+  --border: #e4ebe7;
+  --danger: #dc5252;
+  --success: #21845e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--background);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+input,
+select {
+  width: 100%;
+}
+
+h1, h2, h3 {
+  font-family: 'Manrope', sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+.success {
+  color: var(--success);
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.error {
+  color: var(--danger);
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+}
