@@ -1,6 +1,6 @@
 # 🩸 Sweety – Blood Glucose Tracker
 
-A full-stack web application that helps users record, manage, and monitor their daily blood glucose readings. It provides secure authentication, reading management, and date-based reports to help users track their glucose history.
+A full-stack web application that helps users record, manage, and monitor their daily blood glucose readings. It provides secure authentication, reading management, pagination, and date-based reports to help users track their glucose history.
 
 ## 🚀 Features
 
@@ -38,19 +38,19 @@ A full-stack web application that helps users record, manage, and monitor their 
 - **Daily Report:** Statistics for the selected date.
 - **Month-to-Date Report:** Statistics from the first day of the month to the selected date.
 - **Previous Month Report:** Statistics for the entire previous month.
-- Displays maximum, minimum, average and total readings.
-- Daily reading details.
+- Displays maximum, minimum, average, and total readings.
+- Shows daily reading details.
 
 ## 🛠️ Technologies Used
 
 | Category | Technologies |
 |---|---|
-| Frontend | React.js, HTML, CSS, JavaScript |
+| Frontend | React.js, HTML5, CSS3, JavaScript (ES6+) |
 | Backend | Node.js, Express.js |
 | Database | PostgreSQL |
 | Authentication | JWT, bcrypt |
-| API Integration | Axios, REST API |
-| Development Tools | VS Code, Postman, pgAdmin, Git, GitHub |
+| API Integration | Axios, REST APIs |
+| Development Tools | VS Code, Postman, pgAdmin 4, Git, GitHub |
 
 ## 📁 Project Structure
 
@@ -58,37 +58,41 @@ A full-stack web application that helps users record, manage, and monitor their 
 sweety-glucose-tracker/
 │
 ├── client/
-│   ├── public/
-│   └── src/
-│       ├── components/
-│       │   ├── ReadingForm.jsx
-│       │   ├── ReadingList.jsx
-│       │   └── ReportCards.jsx
-│       ├── pages/
-│       │   ├── Login.jsx
-│       │   ├── Signup.jsx
-│       │   └── Dashboard.jsx
-│       ├── services/
-│       │   └── api.js
-│       ├── index.css
-│       ├── auth.css
-│       └── dashboard.css
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── ReadingForm.jsx
+│   │   │   ├── ReadingList.jsx
+│   │   │   └── ReportCards.jsx
+│   │   ├── pages/
+│   │   │   ├── Login.jsx
+│   │   │   ├── Signup.jsx
+│   │   │   └── Dashboard.jsx
+│   │   ├── services/
+│   │   │   └── api.js
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   ├── index.css
+│   │   ├── auth.css
+│   │   └── dashboard.css
+│   ├── package.json
+│   └── vite.config.js
 │
 ├── server/
 │   ├── config/
 │   │   └── db.js
 │   ├── controllers/
 │   │   ├── authController.js
-│   │   ├── readingController.js
+│   │   ├── readingsController.js
 │   │   └── reportController.js
 │   ├── middleware/
 │   │   └── authMiddleware.js
 │   ├── routes/
 │   │   ├── authRoutes.js
-│   │   ├── readingRoutes.js
+│   │   ├── readingsRoutes.js
 │   │   └── reportRoutes.js
 │   ├── scripts/
-│   ├── tests/
+│   │   └── seed.js
+│   ├── .env.example
 │   ├── server.js
 │   └── package.json
 │
@@ -101,7 +105,7 @@ sweety-glucose-tracker/
 ### 1. Clone the Repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+git clone https://github.com/gayatrilalitha/sweety-glucose-tracker.git
 cd sweety-glucose-tracker
 ```
 
@@ -112,26 +116,34 @@ cd server
 npm install
 ```
 
-Create a `.env` file inside the `server` folder:
+Create a `.env` file inside the `server` folder using `.env.example` as a reference.
+
+Configure your database credentials and JWT secret:
 
 ```env
 PORT=5000
+
 DB_HOST=localhost
 DB_PORT=5432
 DB_USER=postgres
-DB_PASSWORD=your_postgresql_password
+DB_PASSWORD=root
 DB_NAME=sweety_db
-JWT_SECRET=your_secure_jwt_secret
+
+JWT_SECRET=sweety_blood_glucose_tracker
 ```
 
 ### 3. Database Setup
 
 1. Install PostgreSQL.
 2. Create a database named `sweety_db`.
-3. Create the `users` and `readings` tables.
+3. Create the required `users` and `readings` tables.
 4. Configure your database credentials in the server `.env` file.
 
-### 4. Start Backend
+The `readings` table should enforce the allowed glucose range, valid time slots, and uniqueness of each user's reading per date and time slot.
+
+### 4. Start the Backend
+
+From the `server` directory, run:
 
 ```bash
 npm run dev
@@ -143,7 +155,7 @@ Backend runs at:
 
 ### 5. Frontend Setup
 
-Open another terminal:
+Open another terminal from the project root:
 
 ```bash
 cd client
@@ -181,13 +193,13 @@ GET /api/readings?page=1&limit=5
 
 | Method | Endpoint | Description |
 |---|---|---|
-| GET | `/api/reports?date=YYYY-MM-DD` | Get glucose reports |
+| GET | `/api/reports?date=YYYY-MM-DD` | Get daily, month-to-date, and previous-month reports |
 
 All reading and report endpoints require JWT authentication.
 
 ## 🔐 Security
 
-- Passwords are securely hashed using bcrypt.
+- Passwords are hashed using bcrypt.
 - JWT authentication protects private endpoints.
 - Middleware verifies authenticated users.
 - Database queries use parameterized SQL.
@@ -200,9 +212,11 @@ The objective of this project is to develop a simple and user-friendly blood glu
 
 ## 👩‍💻 Author
 
-**Gayatri**
+**Gayatri Lalitha**
 
-GitHub: YOUR_GITHUB_PROFILE_URL
+GitHub: [gayatrilalitha](https://github.com/gayatrilalitha)
+
+**Project Repository:** [Sweety – Blood Glucose Tracker](https://github.com/gayatrilalitha/sweety-glucose-tracker)
 
 ---
 
