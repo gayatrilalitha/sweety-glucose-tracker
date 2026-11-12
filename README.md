@@ -183,6 +183,39 @@ npm run dev
 
 Open the frontend URL displayed by Vite.
 
+
+## 🧪 Automated Tests
+
+The backend uses Jest and Supertest for automated API testing.
+
+### Run Tests
+
+Navigate to the server directory:
+
+```bash
+cd server
+npm install
+npm test
+```
+
+### Test Coverage
+
+- API health and home route
+- User signup and login
+- JWT authentication
+- Glucose reading creation, update and deletion
+- Glucose value validation (40–600 mg/dl)
+- Duplicate reading prevention
+- Reading retrieval and pagination
+- Empty reading states
+- Daily, month-to-date and previous-month reports
+- Report date validation
+
+All 20 automated tests pass across 4 test suites.
+
+Database operations are mocked in these automated tests, so they do not modify actual application records.
+
+
 ## 🔗 API Endpoints
 
 ### Authentication
