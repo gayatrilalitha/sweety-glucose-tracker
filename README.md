@@ -228,6 +228,20 @@ All reading and report endpoints require JWT authentication.
 
 The objective of this project is to develop a simple and user-friendly blood glucose tracking application that allows individuals to maintain their daily glucose records and view meaningful summaries over different time periods.
 
+## 📝 Notes
+
+### Assumptions
+- Each user manages their own glucose readings.
+- A maximum of four readings can be recorded per day, one for each time slot.
+- Glucose readings are stored as whole numbers in mg/dL.
+- Users cannot add readings for future dates.
+
+### Future Improvements
+- Add interactive charts to visualize glucose trends.
+- Implement automated unit and integration tests.
+- Add Docker support for easier application setup.
+- Improve the application with additional reporting and filtering options.
+
 ## 👩‍💻 Author
 
 **Gayatri Lalitha**
